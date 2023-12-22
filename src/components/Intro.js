@@ -47,7 +47,7 @@ const IntroContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 4rem);
   margin-top: 70px;
 `;
 
