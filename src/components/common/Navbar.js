@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
@@ -22,12 +23,11 @@ export default function Navbar() {
     <StyledNavbox ref={navbarRef}>
       <Title>TayFolio</Title>
       <NavBox>
-        <Button onClick={() => handleScrollToSection("intro")}>Intro</Button>
-        <Button onClick={() => handleScrollToSection("about")}>About</Button>
-        <Button onClick={() => handleScrollToSection("skills")}>Skills</Button>
-        <Button onClick={() => handleScrollToSection("projects")}>
-          ProJects
-        </Button>
+        <Link href="/intro"></Link>
+        <div onClick={() => handleScrollToSection("intro")}>Intro</div>
+        <div onClick={() => handleScrollToSection("about")}>About</div>
+        <div onClick={() => handleScrollToSection("skills")}>Skills</div>
+        <div onClick={() => handleScrollToSection("projects")}>ProJects</div>
       </NavBox>
     </StyledNavbox>
   );
@@ -49,5 +49,3 @@ const StyledNavbox = styled.nav`
 const Title = styled.h1``;
 
 const NavBox = styled.nav``;
-
-const Button = styled.button``;
