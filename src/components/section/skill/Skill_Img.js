@@ -1,16 +1,16 @@
 import React from "react";
-import { SKILLS } from "@/constants/skills";
 import Image from "next/image";
+import styled from "styled-components";
 
-export default function Skill_Img() {
+export default function Skill_Img({ img, name }) {
   return (
-    <div>
-      {SKILLS.map(({ name, img }, index) => (
-        <div key={index}>
-          <Image src={img} alt={name} width={60} height={60} />
-          <p>{name}</p>
-        </div>
-      ))}
-    </div>
+    <ImgSection>
+      <Image alt={img} src={img} width={60} height={60} />
+      <p>{name}</p>
+    </ImgSection>
   );
 }
+
+const ImgSection = styled.div`
+  background-color: #e5c1c5;
+`;

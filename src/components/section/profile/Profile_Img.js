@@ -1,5 +1,10 @@
 import React from "react";
 
 export default function Profile_Img() {
-  return <section>프로필 이미지</section>;
+  return (
+    <section>
+      <div>장점</div>
+      <div>단점</div>
+    </section>
+  );
 }
