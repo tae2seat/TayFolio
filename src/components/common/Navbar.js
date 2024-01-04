@@ -1,22 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-
-const draw = {
-  hidden: { pathLength: 0, opacity: 0 },
-  visible: (i) => {
-    const delay = 1 + i * 0.5;
-    return {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-        opacity: { delay, duration: 0.01 },
-      },
-    };
-  },
-};
+import LogoSvg from "../section/svg/LogoSvg.js";
 
 export default function Navbar() {
   const navbarRef = useRef(null);
@@ -41,85 +26,7 @@ export default function Navbar() {
   return (
     <NavContainer ref={navbarRef}>
       <Logo>
-        <motion.svg
-          width="50"
-          height="50"
-          viewBox="0 0 340 340"
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.line
-            style={{
-              strokeWidth: 20,
-              strokeLinecap: "round",
-              fill: "transparent",
-            }}
-            x1="40"
-            y1="10"
-            x2="170"
-            y2="10"
-            stroke="#e5c1c5"
-            variants={draw}
-            custom={2}
-          />
-          <motion.line
-            style={{
-              strokeWidth: 20,
-              strokeLinecap: "round",
-              fill: "transparent",
-            }}
-            x1="40"
-            y1="10"
-            x2="40"
-            y2="160"
-            stroke="#e5c1c5"
-            variants={draw}
-            custom={2}
-          />
-          <motion.line
-            style={{
-              strokeWidth: 20,
-              strokeLinecap: "round",
-              fill: "transparent",
-            }}
-            x1="40"
-            y1="80"
-            x2="170"
-            y2="80"
-            stroke="#e5c1c5"
-            variants={draw}
-            custom={2}
-          />
-          <motion.line
-            style={{
-              strokeWidth: 20,
-              strokeLinecap: "round",
-              fill: "transparent",
-            }}
-            x1="40"
-            y1="160"
-            x2="170"
-            y2="160"
-            stroke="#e5c1c5"
-            variants={draw}
-            custom={2}
-          />
-          <motion.line />
-
-          <motion.circle
-            style={{
-              strokeWidth: 20,
-              strokeLinecap: "round",
-              fill: "transparent",
-            }}
-            cx="200"
-            cy="200"
-            r="80"
-            stroke="#c3e2dd"
-            variants={draw}
-            custom={1}
-          />
-        </motion.svg>
+        <LogoSvg />
         <h1 className="title">TayFolio</h1>
       </Logo>
       <NavList>
@@ -129,7 +36,7 @@ export default function Navbar() {
           offset={-navbarHeight}
           duration={500}
         >
-          Intro
+          <span className="text">Intro</span>
         </ScrollLink>
         <ScrollLink
           to="about"
@@ -173,16 +80,17 @@ const NavContainer = styled.div`
 
   padding: 2rem;
   background: transparent;
-
-  .title {
-    color: black;
-  }
 `;
 
 const Logo = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.3rem;
+
+  .title {
+    color: #a3b6c5;
+  }
 `;
 
 const NavList = styled.nav`
