@@ -16,7 +16,14 @@ export default function About({ id }) {
 
 const AboutContainer = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 4rem);
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
 `;
