@@ -78,8 +78,11 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding: 2rem;
+  padding: 1.3rem;
   background: transparent;
+
+  @media (min-width: 768px) {
+  }
 `;
 
 const Logo = styled.div`
@@ -96,4 +99,7 @@ const Logo = styled.div`
 const NavList = styled.nav`
   display: flex;
   gap: 2rem;
+
+  @media (min-width: 768px) {
+  }
 `;
