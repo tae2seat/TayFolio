@@ -1,5 +1,5 @@
 import TailwindCSS from "../../public/skills/tailwind.png";
-import JS from "../../public/skills/Javascript.png";
+import JS from "../../public/skills/javascript.png";
 import React from "../../public/skills/react.png";
 import Redux from "../../public/skills/redux.png";
 import Next from "../../public/skills/next.png";
