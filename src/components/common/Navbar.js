@@ -71,12 +71,14 @@ const NavContainer = styled.div`
   position: sticky;
   top: 0px;
   box-sizing: border-box;
+  z-index: 5;
 
-  height: 4rem;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  width: 100%;
+  height: 4rem;
 
   padding: 1.3rem;
   background: #fff6e9;
