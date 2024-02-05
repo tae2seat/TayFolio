@@ -1,18 +1,53 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { PROJECTS } from "@/constants/projects";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Project({ id }) {
+  const [scrollYProgress, setScrollYProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.clientHeight - window.innerHeight;
+      const progress = scrollY / maxScroll;
+      setScrollYProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scale = scrollYProgress * 1.0;
+
   return (
     <ProjectContainer id={id}>
-      <ProjectMainBox>
-        <p>프로젝트 이미지</p>
-        <p>프로젝트 제목</p>
-        <p>프로젝트 스킬</p>
-        <p>프로젝트 웹 주소</p>
-        <p>프로젝트 깃헙 주소</p>
-      </ProjectMainBox>
-      <ProjectDetailBox>
-        <p>디테일 설명</p>
-      </ProjectDetailBox>
+      {PROJECTS.map(
+        ({ projectId, title, img, explain, skills, github, web }) => (
+          <ProjectMainBox
+            key={projectId}
+            style={{ transform: `scale(${scale})` }}
+          >
+            <Image
+              alt={img}
+              src={img}
+              width={320}
+              style={{ borderRadius: "6px" }}
+            />
+            <ProjectDetailBox>
+              <p>{title}</p>
+              <p>{explain}</p>
+              <p>{skills}</p>
+              <p>{github}</p>
+              <p>{web}</p>
+            </ProjectDetailBox>
+          </ProjectMainBox>
+        )
+      )}
     </ProjectContainer>
   );
 }
@@ -22,23 +57,30 @@ const ProjectContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 70px);
-  margin-top: 70px;
+  padding: 50px;
+  gap: 50px;
 
-  background: blue;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 80px;
+  }
 `;
 
-const ProjectMainBox = styled.div`
+const ProjectMainBox = styled(motion.div)`
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  width: 350px;
-  height: 400px;
+  align-items: center;
+  padding: 14px 10px;
   background: pink;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
 `;
 
 const ProjectDetailBox = styled.div`
   background: white;
-  width: 350px;
-  height: 200px;
+  width: 320px;
+  margin-top: 14px;
 `;
-//ProjectMainBox를 클릭하면 디테일 페이지가 나오는 걸로 설정하기
