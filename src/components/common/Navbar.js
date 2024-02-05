@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <NavContainer ref={navbarRef}>
       <Logo>
-        <LogoSvg />
+        {/* <LogoSvg /> */}
         <h1 className="title">TayFolio</h1>
       </Logo>
       <NavList>
@@ -79,7 +79,7 @@ const NavContainer = styled.div`
   align-items: center;
 
   padding: 1.3rem;
-  background: transparent;
+  background: #fff6e9;
 
   @media (min-width: 768px) {
   }
@@ -92,14 +92,16 @@ const Logo = styled.div`
   gap: 0.3rem;
 
   .title {
-    color: #a3b6c5;
+    font-size: 1.6rem;
+    color: #40a2e3;
   }
 `;
 
 const NavList = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 
   @media (min-width: 768px) {
+    gap: 2rem;
   }
 `;
