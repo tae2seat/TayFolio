@@ -7,7 +7,7 @@ import profileImg from "../../public/khy.jpeg";
 
 const IntroContainer = styled(motion.section)`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
 
   @media (min-width: 1024px) {
@@ -35,10 +35,14 @@ const StyledImage = styled(Image)`
   border: 2px solid #211c6a;
 `;
 
+const TypingAnimation = styled(motion.h1)`
+  font-size: 0.8rem;
+  color: #2e3a87;
+`;
+
 export default function Intro({ id }) {
   return (
     <IntroContainer id={id}>
-      <StyledImage alt={profileImg} src={profileImg} />
       <MotionTextBox>
         <MotionText
           initial={{ x: -160, y: 20 }}
@@ -71,6 +75,15 @@ export default function Intro({ id }) {
           김태이입니다.
         </MotionText>
       </MotionTextBox>
+      <StyledImage alt="profileImg" src={profileImg} />
+      <TypingAnimation
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        {" "}
+        Framer Motion 텍스트 애니메이션
+      </TypingAnimation>
     </IntroContainer>
   );
 }
