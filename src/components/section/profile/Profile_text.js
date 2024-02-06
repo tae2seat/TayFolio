@@ -34,7 +34,7 @@ const ProfileTextBox = styled.section`
   div {
     background: white;
     border-radius: 30px;
-    margin: 30px;
+    margin-bottom: 50px;
   }
 
   p {
