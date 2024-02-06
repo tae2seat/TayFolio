@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import profileImg from "../../public/khy.jpeg";
 import IntroText from "@/hooks/framer_motion/IntroText";
+import IntroTyping from "@/hooks/framer_motion/IntroTyping";
 
 const IntroContainer = styled(motion.section)`
   display: flex;
@@ -23,24 +24,15 @@ const StyledImage = styled(Image)`
   border: 2px solid #211c6a;
 `;
 
-const TypingAnimation = styled(motion.h1)`
-  font-size: 0.8rem;
-  color: #2e3a87;
-`;
-
 export default function Intro({ id }) {
+  const text =
+    "안녕하세요 저는 김태이입니다. 여기는 타이핑 할 무언가를 쓰는 공간이다 여기에 무슨 얘기를 쓸 지 한번 고민해 보시오. 자기주도로 학습을 했다는 말을 쓰고 어떤 식으로 공부를 하였는지 쓰는 것이 좋겠군 ";
+
   return (
     <IntroContainer id={id}>
       <IntroText />
       <StyledImage alt="profileImg" src={profileImg} />
-      <TypingAnimation
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {" "}
-        Framer Motion 텍스트 애니메이션
-      </TypingAnimation>
+      <IntroTyping text={text} />
     </IntroContainer>
   );
 }
