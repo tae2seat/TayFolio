@@ -4,18 +4,47 @@ import styled from "styled-components";
 
 export default function Profile_text() {
   return (
-    <ProfileTextBox style={{ backgroundColor: "green" }}>
-      {PROFILE.map(({ type, content }, index) => (
-        <p key={index}>
-          {type} : {content}
-        </p>
-      ))}
+    <ProfileTextBox>
+      <h1>About Me</h1>
+      <div>
+        {PROFILE.map(({ type, content }, index) => (
+          <p key={index}>
+            {type} : {content}
+          </p>
+        ))}
+      </div>
     </ProfileTextBox>
   );
 }
 
 const ProfileTextBox = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 100%;
-  height: 50%;
-  background: green;
+  background: blue;
+
+  h1 {
+    font-size: 3rem;
+    color: blue;
+    background: yellow;
+  }
+
+  div {
+    background: white;
+    border-radius: 30px;
+    margin: 30px;
+  }
+
+  p {
+    width: 300px;
+    background: white;
+    border-radius: 30px;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    text-align: start;
+    color: red;
+    margin-left: 1.8rem;
+  }
 `;

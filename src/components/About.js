@@ -1,7 +1,6 @@
 "use client";
 
 import Profile_text from "./section/profile/Profile_text";
-import Profile_Img from "./section/profile/Profile_Img";
 import styled from "styled-components";
 
 export default function About({ id }) {
@@ -9,7 +8,6 @@ export default function About({ id }) {
   return (
     <AboutContainer id={id}>
       <Profile_text />
-      <Profile_Img />
     </AboutContainer>
   );
 }
@@ -17,13 +15,8 @@ export default function About({ id }) {
 const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: calc(100vh - 4rem);
-
-  @media (min-width: 1024px) {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-  }
+  background: green;
 `;
