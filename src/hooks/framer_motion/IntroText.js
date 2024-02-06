@@ -8,6 +8,7 @@ const MotionTextBox = styled(motion.div)`
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 0.5rem;
 `;
 
 const MotionText = styled(motion.h1)`

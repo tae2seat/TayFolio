@@ -29,7 +29,7 @@ export default function IntroTyping() {
 
 const TypingAnimation = styled(motion.h1)`
   display: inline-block;
-  margin: 3rem 0;
+  margin-top: 3.6rem;
   font-size: 0.8rem;
   color: #2e3a87;
 `;
