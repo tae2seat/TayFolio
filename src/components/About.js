@@ -18,5 +18,4 @@ const AboutContainer = styled.section`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 4rem);
-  background: green;
 `;
