@@ -21,14 +21,10 @@ const ProfileTextBox = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
-  background: blue;
 
   h1 {
     font-size: 3rem;
-    color: blue;
-    background: yellow;
   }
 
   div {
@@ -44,7 +40,6 @@ const ProfileTextBox = styled.section`
     font-size: 1rem;
     padding: 0.8rem 0;
     text-align: start;
-    color: red;
     margin-left: 1.8rem;
   }
 `;
