@@ -8,7 +8,6 @@ import Image from "next/image";
 export default function Skill({ id }) {
   const [selectedCategory, setSelectedCategory] = useState("frontend");
   const [tagValue, setTagValue] = useState(1);
-  // 해당 카테고리에 해당하는 스킬 필터링
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -40,11 +39,11 @@ export default function Skill({ id }) {
             onClick={() => setTagValue(skillId)}
           />
         ))}
-        <SkillInfoBox tagValue={tagValue}>
-          <p>{SKILLS[tagValue - 1].name}</p>
-          <p>{SKILLS[tagValue - 1].content}</p>
-        </SkillInfoBox>
       </SkillImgBox>
+      <SkillInfoBox tagValue={tagValue}>
+        <p>{SKILLS[tagValue - 1].name}</p>
+        <p>{SKILLS[tagValue - 1].content}</p>
+      </SkillInfoBox>
     </SkillContainer>
   );
 }
