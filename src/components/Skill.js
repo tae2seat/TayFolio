@@ -1,11 +1,9 @@
-"use client";
-
+import React, { useState } from "react";
 import styled from "styled-components";
-import { SKILLS } from "@/constants/skills";
-import { useState } from "react";
 import Image from "next/image";
+import { SKILLS } from "@/constants/skills";
 
-export default function Skill({ id }) {
+const Skill = ({ id }) => {
   const [selectedCategory, setSelectedCategory] = useState("frontend");
   const [tagValue, setTagValue] = useState(1);
 
@@ -23,13 +21,15 @@ export default function Skill({ id }) {
 
   return (
     <SkillContainer id={id}>
-      <CategoryBox>
-        <button onClick={() => handleCategoryClick("frontend")}>
+      <div>
+        <FrontendButton onClick={() => handleCategoryClick("frontend")}>
           Frontend
-        </button>
-        <button onClick={() => handleCategoryClick("backend")}>Backend</button>
-        <button onClick={() => handleCategoryClick("etc")}>etc</button>
-      </CategoryBox>
+        </FrontendButton>
+        <BackendButton onClick={() => handleCategoryClick("backend")}>
+          Backend
+        </BackendButton>
+        <EtcButton onClick={() => handleCategoryClick("etc")}>etc</EtcButton>
+      </div>
       <SkillImgBox>
         {filteredSkills.map(({ skillId, img }, index) => (
           <SkillImg
@@ -46,7 +46,7 @@ export default function Skill({ id }) {
       </SkillInfoBox>
     </SkillContainer>
   );
-}
+};
 
 const SkillContainer = styled.div`
   display: flex;
@@ -54,46 +54,69 @@ const SkillContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: 1024px) {
-    height: calc(100vh - 4rem);
+  @
+`;
+
+const Button = styled.button`
+  flex: 1 1 auto;
+  margin: px;
+  padding: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+
+  );
+
+  &:hover {
+    background-position: right center;
   }
 `;
 
-const CategoryBox = styled.nav`
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
+const FrontendButton = styled(Button)`
+  background-image: linear-gradient(
+    to right,
+    #f6d365 0%,
+    #fda085 51%,
+    #f6d365 100%
+  );
+`;
 
-  width: 100%;
-  height: 2rem;
-  margin: 16px;
+const BackendButton = styled(Button)`
+  background-image: linear-gradient(
+    to right,
+    #fbc2eb 0%,
+    #a6c1ee 51%,
+    #fbc2eb 100%
+  );
+`;
 
-  button {
-    background: white;
-  }
+const EtcButton = styled(Button)`
+  background-image: linear-gradient(
+    to right,
+    #84fab0 0%,
+    #8fd3f4 51%,
+    #84fab0 100%
+  );
 `;
 
 const SkillImgBox = styled.section`
-  width: 100%;
   background-color: #f1bcae;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
 `;
 
 const SkillImg = styled(Image)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
   width: 45px;
   height: 45px;
 `;
 
 const SkillInfoBox = styled.div`
-  width: 100%;
-  height: 300px;
   background-color: #f5ddad;
 `;
+
+export default Skill;
