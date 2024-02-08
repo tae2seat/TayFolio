@@ -72,19 +72,13 @@ const NavContainer = styled.div`
   top: 0px;
   box-sizing: border-box;
   z-index: 5;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
   height: 4rem;
-
-  padding: 1.3rem;
+  padding: 0 1rem;
   background: #fff6e9;
-
-  @media (min-width: 768px) {
-  }
 `;
 
 const Logo = styled.div`
