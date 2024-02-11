@@ -27,7 +27,6 @@ const StyledImage = styled(Image)`
   height: 260px;
   border-radius: 50%;
   border: 2px solid #40a2e3;
-  margin-top: 2rem;
 
   @media (min-width: 1024px) {
     width: 320px;
