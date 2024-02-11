@@ -27,7 +27,7 @@ export default function IntroText() {
           delay: 0.8,
         }}
       >
-        안녕하세요.
+        <p>안녕하세요. 김태이입니다.</p>
       </MotionText>
       <MotionText
         initial={{ x: 150 }}
@@ -37,7 +37,10 @@ export default function IntroText() {
           delay: 0.8,
         }}
       >
-        스펀지처럼 흡수하는 프론트엔드 개발자
+        <p>
+          Frontend 신입 개발자로 React.js를 활용하여 베베 프로젝트룰 구축하고{" "}
+          <br /> Next.js와 Typescript를 학습하며 적용하고 있습니다.
+        </p>
       </MotionText>
       <MotionText
         initial={{ x: -50, y: -20 }}
@@ -46,9 +49,7 @@ export default function IntroText() {
           duration: 1,
           delay: 0.8,
         }}
-      >
-        김태이입니다.
-      </MotionText>
+      ></MotionText>
     </MotionTextBox>
   );
 }

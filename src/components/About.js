@@ -1,5 +1,6 @@
 "use client";
 
+import IntroTyping from "@/hooks/framer_motion/IntroTyping";
 import Profile_text from "./section/profile/Profile_text";
 import styled from "styled-components";
 
@@ -8,6 +9,7 @@ export default function About({ id }) {
   return (
     <AboutContainer id={id}>
       <Profile_text />
+      <IntroTyping />
     </AboutContainer>
   );
 }
