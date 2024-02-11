@@ -7,8 +7,13 @@ const MotionTextBox = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 500px;
   margin-bottom: 0.5rem;
+
+  background: pink;
+  @media (min-width: 1024px) {
+    width: 600px;
+  }
 `;
 
 const MotionText = styled(motion.h1)`

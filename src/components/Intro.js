@@ -11,18 +11,29 @@ const IntroContainer = styled(motion.section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 3rem;
   height: calc(100vh - 4rem);
-
   background: blue;
+
   @media (min-width: 1024px) {
-\  }
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5rem;
+  }
 `;
 
 const StyledImage = styled(Image)`
-  width: 250px;
-  height: 250px;
+  width: 265px;
+  height: 260px;
   border-radius: 50%;
   border: 2px solid #40a2e3;
+  margin-top: 2rem;
+
+  @media (min-width: 1024px) {
+    width: 320px;
+    height: 320px;
+    margin-top: 0;
+  }
 `;
 
 export default function Intro({ id }) {
