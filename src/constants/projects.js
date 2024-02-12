@@ -30,4 +30,13 @@ export const PROJECTS = [
     github: "https://github.com/tae2seat/bebe-mall",
     web: "https://mall.tae2seat.com",
   },
+  {
+    projectId: 4,
+    title: "Portfolio",
+    img: "",
+    explain: "김태이 포트폴리오",
+    skills: ["Nest.js", "Styled-components"],
+    github: "https://github.com/tae2seat/bebe-mall",
+    web: "https://mall.tae2seat.com",
+  },
 ];

@@ -30,35 +30,37 @@ export default function Project({ id }) {
 
   return (
     <ProjectContainer id={id}>
-      <div ref={ref}>
-        <h1
-          style={{
-            transform: isInView ? "none" : "translateX(-200px)",
-            opacity: isInView ? 1 : 0,
-            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-          }}
-        >
-          Projects
-        </h1>
+      <h1
+        className="title"
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
+        Projects
+      </h1>
+      <div className="grid" ref={ref} style={{ backgroundColor: "blue" }}>
+        {PROJECTS.map(({ projectId, title, img, explain }) => (
+          <ProjectMainBox
+            key={projectId}
+            style={{ transform: `scale(${scale})` }}
+            onClick={() =>
+              setSelectedId(selectedId === projectId ? null : projectId)
+            }
+          >
+            <Image
+              alt={img}
+              src={img}
+              width={320}
+              style={{ borderRadius: "6px" }}
+            />
+            <p className="project-title">{title}</p>
+            <p className="explain">{explain}</p>
+          </ProjectMainBox>
+        ))}
       </div>
-      {PROJECTS.map(({ projectId, title, img, explain }) => (
-        <ProjectMainBox
-          key={projectId}
-          style={{ transform: `scale(${scale})` }}
-          onClick={() =>
-            setSelectedId(selectedId === projectId ? null : projectId)
-          }
-        >
-          <Image
-            alt={img}
-            src={img}
-            width={320}
-            style={{ borderRadius: "6px" }}
-          />
-          <p>{title}</p>
-          <p>{explain}</p>
-        </ProjectMainBox>
-      ))}
+
       <AnimatePresence>
         {selectedId && (
           <SelectedProject
@@ -88,27 +90,45 @@ const ProjectContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
-  gap: 50px;
+  width: 100%;
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.8rem 3.8rem;
+    padding: 1rem;
+  }
 
   @media screen and (min-width: 1024px) {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 80px;
+    height: calc(100vh - 4rem);
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 `;
 
 const ProjectMainBox = styled(motion.div)`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 14px 10px;
   background: pink;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
+  padding: 0.6rem;
   cursor: pointer;
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .explain {
+    font-size: 0.8rem;
+  }
 `;
 
 const ProjectDetailBox = styled.div`
