@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -7,13 +9,13 @@ const MotionTextBox = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.4rem;
+  gap: 1rem;
   width: 380px;
 
+  background: pink;
   @media (min-width: 768px) {
     width: 540px;
   }
-
   @media (min-width: 1024px) {
     width: 600px;
   }
@@ -22,6 +24,7 @@ const MotionTextBox = styled(motion.div)`
 const MotionText = styled(motion.div)`
   .hello {
     font-size: 2rem;
+    background: blue;
   }
 
   .info {
@@ -37,22 +40,34 @@ export default function IntroText() {
     <MotionTextBox>
       <MotionText
         initial={{ x: -120, y: 20 }}
-        animate={{ x: 0, opacity: [0, 1] }}
+        animate={{ x: -60, opacity: [0, 1] }}
         transition={{
           duration: 1,
           delay: 0.8,
         }}
       >
-        <span className="hello">안녕하세요. 김태이입니다.</span>
+        <span className="hello">안녕하세요.</span>
       </MotionText>
       <MotionText
-        initial={{ x: 150 }}
-        animate={{ x: 0, opacity: [0, 1] }}
+        initial={{ x: 250 }}
+        animate={{ x: 50, opacity: [0, 1] }}
         transition={{
           duration: 1,
           delay: 0.8,
         }}
       >
+        {" "}
+        <span className="hello">김태이입니다.</span>
+      </MotionText>
+      <MotionText
+        initial={{ x: -80, y: -20 }}
+        animate={{ x: 50, opacity: [0, 1] }}
+        transition={{
+          duration: 1,
+          delay: 0.8,
+        }}
+      >
+        {" "}
         <p className="info">
           Frontend 신입 개발자로 React.js를 활용하여 베베 프로젝트룰 구축하고,{" "}
           <br /> Next.js와 Typescript를 학습하며 적용하고 있습니다.
