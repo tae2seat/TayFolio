@@ -90,7 +90,6 @@ const ProjectContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
 
   .title {
     font-size: 2.8rem;
