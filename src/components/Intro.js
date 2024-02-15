@@ -13,7 +13,6 @@ const IntroContainer = styled(motion.section)`
   justify-content: center;
   gap: 3rem;
   height: calc(100vh - 4rem);
-  background: blue;
 
   @media (min-width: 1024px) {
     display: flex;

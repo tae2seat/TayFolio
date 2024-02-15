@@ -10,10 +10,10 @@ const MotionTextBox = styled(motion.div)`
   gap: 1.4rem;
   width: 380px;
 
-  background: pink;
   @media (min-width: 768px) {
     width: 540px;
   }
+
   @media (min-width: 1024px) {
     width: 600px;
   }
@@ -22,7 +22,6 @@ const MotionTextBox = styled(motion.div)`
 const MotionText = styled(motion.div)`
   .hello {
     font-size: 2rem;
-    background: blue;
   }
 
   .info {
@@ -60,14 +59,6 @@ export default function IntroText() {
           <br />
         </p>
       </MotionText>
-      {/* <MotionText
-        initial={{ x: -50, y: -20 }}
-        animate={{ x: 50, opacity: [0, 1] }}
-        transition={{
-          duration: 1,
-          delay: 0.8,
-        }}
-      ></MotionText> */}
     </MotionTextBox>
   );
 }
