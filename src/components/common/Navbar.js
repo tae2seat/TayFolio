@@ -94,7 +94,6 @@ const NavContainer = styled.div`
 
 const NavToggle = styled.div`
   position: relative;
-  background: red;
   width: 65px;
   height: 100%;
   cursor: pointer;
@@ -103,8 +102,6 @@ const NavToggle = styled.div`
     font-size: 1.3rem;
     text-align: center;
     padding-top: 0.1rem;
-
-    color: white;
     transition: color 0.3s ease;
 
     &:hover {

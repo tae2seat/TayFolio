@@ -141,24 +141,28 @@ const Skill = ({ id }) => {
         <EtcButton onClick={() => handleCategoryClick("etc")}>etc</EtcButton>
       </ButtonBox>
       <SkillCardBox>
-        {filteredSkills.map(({ skillId, img, name }, index) => (
-          <div key={index} className="card">
-            {" "}
-            <SkillImgBox>
-              <SkillImg
-                alt={img}
-                src={img}
-                onClick={() => setTagValue(skillId)}
-              />
-              <p className="name">{name}</p>
-            </SkillImgBox>
-            {tagValue === skillId && (
-              <p tagValue={tagValue} className="content">
-                {SKILLS[tagValue - 1].content}
-              </p>
-            )}
-          </div>
-        ))}
+        {filteredSkills.map(({ skillId, img, name }, index) => {
+          return (
+            <div key={index} className="card">
+              {" "}
+              <SkillImgBox>
+                <SkillImg
+                  alt={img}
+                  src={img}
+                  width={32}
+                  height={32}
+                  onClick={() => setTagValue(skillId)}
+                />
+                <p className="name">{name}</p>
+              </SkillImgBox>
+              {tagValue === skillId && (
+                <p tagvalue={tagValue} className="content">
+                  {SKILLS[tagValue - 1].content}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </SkillCardBox>
     </SkillContainer>
   );
