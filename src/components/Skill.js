@@ -3,18 +3,81 @@ import styled from "styled-components";
 import Image from "next/image";
 import { SKILLS } from "@/constants/skills";
 
+// 페이지 스타일
 const SkillContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: calc(100vh - 4rem);
+  gap: 1.8rem;
+  padding: 2rem 0;
 
-  background: ;
+  background: red;
 
+  @media (min-width: 1024px) {
+    display: flex;
+    height: calc(100vh - 4rem);
+  }
+`;
 
+// 스킬 카드 스타일
+const SkillCardBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 
-  @
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    width: 300px;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    // border-style: solid;
+    // border-width: 2px;
+    // border-radius: 10px;
+    // border-color: blue;
+  }
+
+  .content {
+    width: 100%;
+    height: 120px;
+    background: white;
+    line-height: 2rem;
+    padding: 0.2rem;
+  }
+`;
+
+const SkillImgBox = styled.section`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .name {
+    font-size: 1rem;
+  }
+`;
+
+const SkillImg = styled(Image)`
+  width: 45px;
+  height: 45px;
+  margin: auto;
+  padding: 0.3rem;
+  background: white;
+  border: 1px solid;
+  border-color: grey;
+  border-radius: 50%;
+`;
+
+// 버튼 스타일
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
 `;
 
 const Button = styled.button`
@@ -26,29 +89,16 @@ const Button = styled.button`
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  text-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-
-  );
 
   &:hover {
     background-position: right center;
   }
 `;
 
-const ButtonBox = styled.div``;
-
 const FrontendButton = styled(Button)`
-  background-image: linear-gradient(
-    to right,
-    #f6d365 0%,
-    #fda085 51%,
-    #f6d365 100%
-  );
-`;
-
-const BackendButton = styled(Button)`
   background-image: linear-gradient(
     to right,
     #fbc2eb 0%,
@@ -64,21 +114,6 @@ const EtcButton = styled(Button)`
     #8fd3f4 51%,
     #84fab0 100%
   );
-`;
-
-const SkillImgBox = styled.section`
-  background-color: #f1bcae;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-`;
-
-const SkillImg = styled(Image)`
-  width: 45px;
-  height: 45px;
-`;
-
-const SkillInfoBox = styled.div`
-  background-color: #f5ddad;
 `;
 
 const Skill = ({ id }) => {
@@ -99,29 +134,33 @@ const Skill = ({ id }) => {
 
   return (
     <SkillContainer id={id}>
+      <p>이미지를 클릭하면 사용경험이 나옵니다.</p>
       <ButtonBox>
         <FrontendButton onClick={() => handleCategoryClick("frontend")}>
           Frontend
         </FrontendButton>
-        <BackendButton onClick={() => handleCategoryClick("backend")}>
-          Backend
-        </BackendButton>
         <EtcButton onClick={() => handleCategoryClick("etc")}>etc</EtcButton>
       </ButtonBox>
-      <SkillImgBox>
-        {filteredSkills.map(({ skillId, img }, index) => (
-          <SkillImg
-            key={index}
-            alt={img}
-            src={img}
-            onClick={() => setTagValue(skillId)}
-          />
+      <SkillCardBox>
+        {filteredSkills.map(({ skillId, img, name }, index) => (
+          <div key={index} className="card">
+            {" "}
+            <SkillImgBox>
+              <SkillImg
+                alt={img}
+                src={img}
+                onClick={() => setTagValue(skillId)}
+              />
+              <p className="name">{name}</p>
+            </SkillImgBox>
+            {tagValue === skillId && (
+              <p tagValue={tagValue} className="content">
+                {SKILLS[tagValue - 1].content}
+              </p>
+            )}
+          </div>
         ))}
-      </SkillImgBox>
-      <SkillInfoBox tagValue={tagValue}>
-        <p>{SKILLS[tagValue - 1].name}</p>
-        <p>{SKILLS[tagValue - 1].content}</p>
-      </SkillInfoBox>
+      </SkillCardBox>
     </SkillContainer>
   );
 };

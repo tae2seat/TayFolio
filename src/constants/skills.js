@@ -10,13 +10,14 @@ import Figma from "../../public/skills/figma.png";
 import Styled_Components from "../../public/skills/styled_components.png";
 import AWS from "../../public/skills/aws.png";
 import Postman from "../../public/skills/postman.png";
+import FramerMotion from "../../public/skills/framer.png";
 
 export const SKILLS = [
   {
     skillId: 1,
     img: JS,
     name: "Javascript",
-    content: "",
+    content: "자바스크립트 사용경험을 써 주세요",
     stack: "frontend",
   },
   {
@@ -76,22 +77,14 @@ export const SKILLS = [
   },
   {
     skillId: 9,
-    img: Recoil,
-    name: "Recoil",
-    content:
-      "Recoil을 사용함으로써 상태를 전역적으로 관리하는 경험을 하였습니다.",
-    stack: "frontend",
-  },
-  {
-    skillId: 10,
     img: AWS,
     name: "AWS",
     content:
       "아마존에서 개발한 클라우드 컴퓨팅 플랫폼을 사용함으로써 인프라를 구축, 관리하는 연습을 했습니다.",
-    stack: "backend",
+    stack: "etc",
   },
   {
-    skillId: 11,
+    skillId: 10,
     img: Postman,
     name: "Postman",
     content:
@@ -99,22 +92,15 @@ export const SKILLS = [
     stack: "etc",
   },
   {
-    skillId: 12,
+    skillId: 11,
     img: Figma,
     name: "Figma",
     content: "디자이너와 피그마를 활용하여 디자인 컨셉을 구체화 하였습니다. ",
     stack: "etc",
   },
   {
-    skillId: 13,
-    img: "",
-    name: "Express",
-    content: "",
-    stack: "backend",
-  },
-  {
-    skillId: 14,
-    img: "",
+    skillId: 12,
+    img: FramerMotion,
     name: "framer-motion",
     content: "",
     stack: "frontend",
