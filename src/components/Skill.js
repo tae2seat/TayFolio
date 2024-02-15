@@ -3,56 +3,15 @@ import styled from "styled-components";
 import Image from "next/image";
 import { SKILLS } from "@/constants/skills";
 
-const Skill = ({ id }) => {
-  const [selectedCategory, setSelectedCategory] = useState("frontend");
-  const [tagValue, setTagValue] = useState(1);
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    const firstSkillIndex = SKILLS.findIndex(
-      (skill) => skill.stack === category
-    );
-    setTagValue(firstSkillIndex !== -1 ? SKILLS[firstSkillIndex].skillId : 1);
-  };
-
-  const filteredSkills = SKILLS.filter(
-    (skill) => skill.stack === selectedCategory
-  );
-
-  return (
-    <SkillContainer id={id}>
-      <div>
-        <FrontendButton onClick={() => handleCategoryClick("frontend")}>
-          Frontend
-        </FrontendButton>
-        <BackendButton onClick={() => handleCategoryClick("backend")}>
-          Backend
-        </BackendButton>
-        <EtcButton onClick={() => handleCategoryClick("etc")}>etc</EtcButton>
-      </div>
-      <SkillImgBox>
-        {filteredSkills.map(({ skillId, img }, index) => (
-          <SkillImg
-            key={index}
-            alt={img}
-            src={img}
-            onClick={() => setTagValue(skillId)}
-          />
-        ))}
-      </SkillImgBox>
-      <SkillInfoBox tagValue={tagValue}>
-        <p>{SKILLS[tagValue - 1].name}</p>
-        <p>{SKILLS[tagValue - 1].content}</p>
-      </SkillInfoBox>
-    </SkillContainer>
-  );
-};
-
 const SkillContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: calc(100vh - 4rem);
+
+  background: ;
+
 
 
   @
@@ -77,6 +36,8 @@ const Button = styled.button`
     background-position: right center;
   }
 `;
+
+const ButtonBox = styled.div``;
 
 const FrontendButton = styled(Button)`
   background-image: linear-gradient(
@@ -119,5 +80,50 @@ const SkillImg = styled(Image)`
 const SkillInfoBox = styled.div`
   background-color: #f5ddad;
 `;
+
+const Skill = ({ id }) => {
+  const [selectedCategory, setSelectedCategory] = useState("frontend");
+  const [tagValue, setTagValue] = useState(1);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    const firstSkillIndex = SKILLS.findIndex(
+      (skill) => skill.stack === category
+    );
+    setTagValue(firstSkillIndex !== -1 ? SKILLS[firstSkillIndex].skillId : 1);
+  };
+
+  const filteredSkills = SKILLS.filter(
+    (skill) => skill.stack === selectedCategory
+  );
+
+  return (
+    <SkillContainer id={id}>
+      <ButtonBox>
+        <FrontendButton onClick={() => handleCategoryClick("frontend")}>
+          Frontend
+        </FrontendButton>
+        <BackendButton onClick={() => handleCategoryClick("backend")}>
+          Backend
+        </BackendButton>
+        <EtcButton onClick={() => handleCategoryClick("etc")}>etc</EtcButton>
+      </ButtonBox>
+      <SkillImgBox>
+        {filteredSkills.map(({ skillId, img }, index) => (
+          <SkillImg
+            key={index}
+            alt={img}
+            src={img}
+            onClick={() => setTagValue(skillId)}
+          />
+        ))}
+      </SkillImgBox>
+      <SkillInfoBox tagValue={tagValue}>
+        <p>{SKILLS[tagValue - 1].name}</p>
+        <p>{SKILLS[tagValue - 1].content}</p>
+      </SkillInfoBox>
+    </SkillContainer>
+  );
+};
 
 export default Skill;

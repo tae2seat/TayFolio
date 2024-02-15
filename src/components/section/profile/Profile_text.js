@@ -24,7 +24,7 @@ const ProfileTextBox = styled.section`
   width: 100%;
 
   h1 {
-    font-size: 3rem;
+    font-size: 1.8rem;
   }
 
   div {
@@ -34,12 +34,12 @@ const ProfileTextBox = styled.section`
   }
 
   p {
-    width: 300px;
+    width: 280px;
     background: white;
     border-radius: 30px;
     font-size: 1rem;
-    padding: 0.8rem 0;
+    padding: 0.3rem 0;
     text-align: start;
-    margin-left: 1.8rem;
+    margin-left: 1.2rem;
   }
 `;
