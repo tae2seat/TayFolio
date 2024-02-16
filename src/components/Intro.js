@@ -12,15 +12,16 @@ const IntroContainer = styled(motion.section)`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  width: 100%;
   height: calc(100vh - 4rem);
 `;
 
 export default function Intro({ id }) {
   return (
     <IntroContainer id={id}>
-      <div>
+      {/* <div>
         <LogoSvg />
-      </div>
+      </div> */}
       <IntroText />
     </IntroContainer>
   );

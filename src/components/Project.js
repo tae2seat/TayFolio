@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { PROJECTS } from "@/constants/projects";
 import Image from "next/image";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import TitleMotionAni from "@/hooks/framer_motion/titleMotion";
 
 export default function Project({ id }) {
@@ -51,27 +51,28 @@ export default function Project({ id }) {
           </ProjectMainBox>
         ))}
       </div>
-
-      <AnimatePresence>
-        {selectedId && (
-          <SelectedProject
-            layoutId={selectedId}
-            onClick={() => setSelectedId(null)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <ProjectDetailBox>
-              <p>{PROJECTS[selectedId - 1].title}</p>
-              <p>{PROJECTS[selectedId - 1].explain}</p>
-              <p>{PROJECTS[selectedId - 1].skills}</p>
-              <p>{PROJECTS[selectedId - 1].github}</p>
-              <p>{PROJECTS[selectedId - 1].web}</p>
-            </ProjectDetailBox>
-            <CloseButton>Close</CloseButton>
-          </SelectedProject>
-        )}
-      </AnimatePresence>
+      <div className="clickedContent">
+        <AnimatePresence>
+          {selectedId && (
+            <SelectedProject
+              layoutId={selectedId}
+              onClick={() => setSelectedId(null)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <ProjectDetailBox>
+                <p>{PROJECTS[selectedId - 1].title}</p>
+                <p>{PROJECTS[selectedId - 1].explain}</p>
+                <p>{PROJECTS[selectedId - 1].skills}</p>
+                <p>{PROJECTS[selectedId - 1].github}</p>
+                <p>{PROJECTS[selectedId - 1].web}</p>
+              </ProjectDetailBox>
+              <CloseButton>Close</CloseButton>
+            </SelectedProject>
+          )}
+        </AnimatePresence>
+      </div>
     </ProjectContainer>
   );
 }
