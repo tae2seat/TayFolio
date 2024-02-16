@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { PROJECTS } from "@/constants/projects";
 import Image from "next/image";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import TitleMotionAni from "@/hooks/framer_motion/titleMotion";
 
 export default function Project({ id }) {
   const [scrollYProgress, setScrollYProgress] = useState(0);
   const [selectedId, setSelectedId] = useState(null);
 
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,17 +30,10 @@ export default function Project({ id }) {
 
   return (
     <ProjectContainer id={id}>
-      <h1
-        className="title"
-        style={{
-          transform: isInView ? "none" : "translateX(-200px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-        }}
-      >
-        Projects
-      </h1>
-      <div className="grid" ref={ref} style={{ backgroundColor: "blue" }}>
+      <div className="title">
+        <TitleMotionAni text="Projects" />
+      </div>
+      <div className="grid" ref={ref}>
         {PROJECTS.map(({ projectId, title, img, explain }) => (
           <ProjectMainBox
             key={projectId}
@@ -87,12 +80,13 @@ export default function Project({ id }) {
 
 const ProjectContainer = styled.section`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: between;
+  align-items: start;
 
+  background: grey;
   .title {
     font-size: 2.8rem;
+    margin: 1.5rem;
   }
 
   .grid {
@@ -105,7 +99,7 @@ const ProjectContainer = styled.section`
   @media screen and (min-width: 1024px) {
     height: calc(100vh - 4rem);
     .grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 `;

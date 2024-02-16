@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { SKILLS } from "@/constants/skills";
+import TitleMotionAni from "@/hooks/framer_motion/titleMotion";
 
 // 페이지 스타일
 const SkillContainer = styled.div`
@@ -12,8 +13,10 @@ const SkillContainer = styled.div`
   gap: 1.8rem;
   padding: 2rem 0;
 
-  background: red;
-
+  .title {
+    font-size: 1.8rem;
+    margin: 1.5rem;
+  }
   @media (min-width: 1024px) {
     display: flex;
   }
@@ -133,7 +136,9 @@ const Skill = ({ id }) => {
 
   return (
     <SkillContainer id={id}>
-      <p>이미지를 클릭하면 사용경험이 나옵니다.</p>
+      <div className="title">
+        <TitleMotionAni text="Skills" />
+      </div>
       <ButtonBox>
         <FrontendButton onClick={() => handleCategoryClick("frontend")}>
           Frontend

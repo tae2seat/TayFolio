@@ -5,7 +5,6 @@ import styled from "styled-components";
 export default function Profile_text() {
   return (
     <ProfileTextBox>
-      <h1>About Me</h1>
       <div>
         {PROFILE.map(({ type, content }, index) => (
           <p key={index}>
