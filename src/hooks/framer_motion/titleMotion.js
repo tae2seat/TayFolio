@@ -1,12 +1,18 @@
+import styled from "styled-components";
+
 const { useInView } = require("framer-motion");
 const { useRef } = require("react");
+
+const StyledTitle = styled.h1`
+  font-size: 2rem;
+`;
 
 const TitleMotionAni = ({ text }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <h1
+    <StyledTitle
       ref={ref}
       style={{
         transform: isInView ? "none" : "translateX(-200px)",
@@ -15,7 +21,7 @@ const TitleMotionAni = ({ text }) => {
       }}
     >
       {text}
-    </h1>
+    </StyledTitle>
   );
 };
 

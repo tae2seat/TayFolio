@@ -30,10 +30,8 @@ export default function Project({ id }) {
 
   return (
     <ProjectContainer id={id}>
-      <div className="title">
-        <TitleMotionAni text="Projects" />
-      </div>
-      <div className="grid" ref={ref}>
+      <TitleMotionAni text="Projects" />
+      <div className="content" ref={ref}>
         {PROJECTS.map(({ projectId, title, img, explain }) => (
           <ProjectMainBox
             key={projectId}
@@ -80,25 +78,13 @@ export default function Project({ id }) {
 
 const ProjectContainer = styled.section`
   display: flex;
-  justify-content: between;
-  align-items: start;
-
-  background: grey;
-  .title {
-    font-size: 2.8rem;
-    margin: 1.5rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2.8rem 3.8rem;
-    padding: 1rem;
-  }
+  flex-direction: column;
+  align-items: center;
+  background: #e4f1ff;
 
   @media screen and (min-width: 1024px) {
     height: calc(100vh - 4rem);
-    .grid {
+    .content {
       grid-template-columns: repeat(3, 1fr);
     }
   }

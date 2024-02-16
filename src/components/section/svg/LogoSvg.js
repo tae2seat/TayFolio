@@ -18,9 +18,9 @@ const draw = {
 export default function LogoSvg() {
   return (
     <motion.svg
-      width="40"
-      height="40"
-      viewBox="0 -15 300 300"
+      width="80"
+      height="80"
+      viewBox="0 -15 320 320"
       initial="hidden"
       animate="visible"
     >
@@ -30,9 +30,9 @@ export default function LogoSvg() {
           strokeLinecap: "round",
           fill: "transparent",
         }}
-        x1="40"
+        x1="30"
         y1="10"
-        x2="170"
+        x2="160"
         y2="10"
         stroke="#e5c1c5"
         variants={draw}
@@ -44,9 +44,9 @@ export default function LogoSvg() {
           strokeLinecap: "round",
           fill: "transparent",
         }}
-        x1="40"
+        x1="30"
         y1="10"
-        x2="40"
+        x2="30"
         y2="160"
         stroke="#e5c1c5"
         variants={draw}
@@ -58,9 +58,9 @@ export default function LogoSvg() {
           strokeLinecap: "round",
           fill: "transparent",
         }}
-        x1="40"
+        x1="30"
         y1="80"
-        x2="170"
+        x2="160"
         y2="80"
         stroke="#e5c1c5"
         variants={draw}
@@ -72,9 +72,9 @@ export default function LogoSvg() {
           strokeLinecap: "round",
           fill: "transparent",
         }}
-        x1="40"
+        x1="30"
         y1="160"
-        x2="170"
+        x2="160"
         y2="160"
         stroke="#e5c1c5"
         variants={draw}
@@ -87,7 +87,7 @@ export default function LogoSvg() {
           strokeLinecap: "round",
           fill: "transparent",
         }}
-        cx="200"
+        cx="220"
         cy="200"
         r="80"
         stroke="#c3e2dd"
