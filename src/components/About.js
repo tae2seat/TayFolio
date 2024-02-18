@@ -10,21 +10,19 @@ const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+
   background: blue;
   .title {
     background: white;
   }
 
-
   @media (min-width: 1024px) {
     flex-direction: row;
     align-items: start;
-    width: 100%
+    width: 100%;
     height: calc(100vh - 4rem);
 
     align-items: center;
- 
   }
 `;
 
