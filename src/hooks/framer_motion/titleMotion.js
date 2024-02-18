@@ -4,6 +4,8 @@ const { useInView } = require("framer-motion");
 const { useRef } = require("react");
 
 const StyledTitle = styled.h1`
+  width: 200px;
+  text-align: center;
   font-size: 2rem;
 `;
 

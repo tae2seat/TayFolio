@@ -10,8 +10,23 @@ const AboutContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  
+  background: blue;
+  .title {
+    background: white;
+  }
+
 
   @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    width: 100%
+    height: calc(100vh - 4rem);
+
+    align-items: center;
+ 
   }
 `;
 
@@ -30,8 +45,7 @@ const StyledImage = styled(Image)`
 export default function About({ id }) {
   return (
     <AboutContainer id={id}>
-      <div>
-        {" "}
+      <div className="title">
         <TitleMotionAni text="About Me" />
       </div>
       <StyledImage
@@ -41,8 +55,8 @@ export default function About({ id }) {
         width={320}
         priority
       />
-      <IntroTyping />
       <div>
+        <IntroTyping />
         <Profile_text />
       </div>
     </AboutContainer>
