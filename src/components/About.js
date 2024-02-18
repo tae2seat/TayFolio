@@ -11,7 +11,6 @@ const AboutContainer = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  
   background: blue;
   .title {
     background: white;
@@ -19,7 +18,6 @@ const AboutContainer = styled.section`
 
 
   @media (min-width: 1024px) {
-    display: flex;
     flex-direction: row;
     align-items: start;
     width: 100%
