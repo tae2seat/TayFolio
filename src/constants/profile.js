@@ -9,7 +9,7 @@ export const PROFILE = [
   },
   {
     type: "PHONE",
-    content: "010-2629-9655",
+    content: "010-2930-9655",
   },
   {
     type: "EMAIL",
