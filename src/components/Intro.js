@@ -19,9 +19,7 @@ const IntroContainer = styled(motion.section)`
 export default function Intro({ id }) {
   return (
     <IntroContainer id={id}>
-      {/* <div>
-        <LogoSvg />
-      </div> */}
+      <LogoSvg />
       <IntroText />
     </IntroContainer>
   );
